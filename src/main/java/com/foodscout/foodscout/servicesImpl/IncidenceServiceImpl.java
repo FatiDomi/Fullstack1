@@ -14,6 +14,7 @@ import com.foodscout.foodscout.services.IncidenceService;
 public class IncidenceServiceImpl implements IncidenceService {
 
     @Autowired
+    public
 
     IncidenceRepository incidenceRepository;
 
