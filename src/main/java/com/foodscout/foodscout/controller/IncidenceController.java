@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.foodscout.foodscout.services.IncidenceService;
 
+import jakarta.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,16 +22,14 @@ public class IncidenceController {
     @Autowired
     IncidenceService incidenceService;
 
-    @PostMapping("/incidence")
-    public ResponseEntity<Integer> postMethodName(@RequestBody String entity) {
+      @PostMapping("/incidence/:id")
+    public ResponseEntity<Integer> addIncidenceDetail(@PathParam(value = "id") Integer id){
         try {
-            incidenceService.storeIncidence(entity);
-            return new ResponseEntity<Integer>(1, HttpStatus.BAD_REQUEST); 
+            incidenceService.storeIncidence(id);
+            return new ResponseEntity<Integer>(1,HttpStatus.ACCEPTED);
         } catch (Exception e) {
-            return new ResponseEntity<Integer>(0, HttpStatus.BAD_REQUEST);        
+            return new ResponseEntity<Integer>(0, HttpStatus.BAD_REQUEST);
         }
-        
-       
     }
 
 }
