@@ -10,8 +10,7 @@ import lombok.Data;
 @AllArgsConstructor
 
 public class IncidenceDTO {
-
-    private Long id;
+    //ctrl+alt+shif+flechaabajo
     private String descripcion;
     private Priorities priority;
     private Scopes scope;

@@ -10,6 +10,7 @@ import com.foodscout.foodscout.models.Incidence;
 import com.foodscout.foodscout.models.dto.IncidenceDTO;
 import com.foodscout.foodscout.repository.IncidenceRepository;
 import com.foodscout.foodscout.services.IncidenceService;
+import com.foodscout.foodscout.repository.UserRepository;
 
 @Service
 public class IncidenceServiceImpl implements IncidenceService {
@@ -17,11 +18,9 @@ public class IncidenceServiceImpl implements IncidenceService {
     @Autowired
     IncidenceRepository incidenceRepository;
 
-    @Override
-    public IncidenceDTO getIncidencesById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIncidencesDtoById'");
-    }
+    @Autowired
+    UserRepository userRepository;
+
 
     public List<IncidenceDTO> getIncidencesDtoByUser(String username) {
         // TODO Auto-generated method stub
@@ -52,6 +51,10 @@ public class IncidenceServiceImpl implements IncidenceService {
         throw new UnsupportedOperationException("Unimplemented method 'getIncidencesByUserName'");
     }
 
+    @Override
+    public List<Incidence> getAllIncidences(){
+        return incidenceRepository.findAll();
+    }
     /*@Override
     public boolean storeIncidence(Integer id) {
         // TODO Auto-generated method stub
