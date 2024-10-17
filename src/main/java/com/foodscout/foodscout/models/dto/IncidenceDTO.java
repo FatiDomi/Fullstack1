@@ -1,9 +1,5 @@
 package com.foodscout.foodscout.models.dto;
 
-
-
-import java.lang.foreign.MemorySegment.Scope;
-
 import com.foodscout.foodscout.models.utils.Priorities;
 import com.foodscout.foodscout.models.utils.Scopes;
 
