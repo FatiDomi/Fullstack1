@@ -1,4 +1,4 @@
-package com.foodscout.foodscout.servicesImpl;
+package com.foodscout.foodscout.services.impl;
 
 import java.time.LocalDateTime;
 import java.util.List;

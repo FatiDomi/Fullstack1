@@ -1,4 +1,4 @@
-package com.foodscout.foodscout.models.Scopes;
+package com.foodscout.foodscout.models.utils;
 
 public enum Scopes {
     HARDWARE,

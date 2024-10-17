@@ -3,8 +3,9 @@ package com.foodscout.foodscout.models.dto;
 
 
 import java.lang.foreign.MemorySegment.Scope;
-import com.foodscout.foodscout.models.Priorities.Priorities;
-import com.foodscout.foodscout.models.Scopes.Scopes;
+
+import com.foodscout.foodscout.models.utils.Priorities;
+import com.foodscout.foodscout.models.utils.Scopes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
