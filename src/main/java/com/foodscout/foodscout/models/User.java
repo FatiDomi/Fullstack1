@@ -2,7 +2,7 @@ package com.foodscout.foodscout.models;
 
 import java.time.LocalDateTime;
 
-import com.foodscout.foodscout.models.utils.Roles;
+import com.foodscout.foodscout.models.utils.enums.Roles;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

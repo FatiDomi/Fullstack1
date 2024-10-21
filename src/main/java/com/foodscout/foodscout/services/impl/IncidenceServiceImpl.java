@@ -3,10 +3,13 @@ package com.foodscout.foodscout.services.impl;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.foodscout.foodscout.models.Incidence;
+import com.foodscout.foodscout.models.User;
 import com.foodscout.foodscout.models.dto.IncidenceDTO;
 import com.foodscout.foodscout.repository.IncidenceRepository;
 import com.foodscout.foodscout.services.IncidenceService;
@@ -18,6 +21,7 @@ public class IncidenceServiceImpl implements IncidenceService {
     @Autowired
     IncidenceRepository incidenceRepository;
 
+ 
     @Autowired
     UserRepository userRepository;
 
@@ -27,15 +31,22 @@ public class IncidenceServiceImpl implements IncidenceService {
         throw new UnsupportedOperationException("Unimplemented method 'getIncidencesDtoByUser'");
     }
 
+
     @Override
     public void storeIncidence(IncidenceDTO datos) {
-        Incidence incidence = new Incidence();
-        incidence.setDescripcion(datos.getDescripcion());
-        incidence.setCreatedAt(LocalDateTime.now());
-        incidence.setPriority(datos.getPriority());
-        incidence.setScope(datos.getScope());
-        incidence.setUserCreated(null);
-        incidenceRepository.save(incidence);
+      
+        Optional<User> user   =  userRepository.findById(Long.parseLong(datos.getUserCreated()));
+        if(user.isPresent()){
+            Incidence incidence = new Incidence();
+            incidence.setDescripcion(datos.getDescripcion());
+            incidence.setCreatedAt(LocalDateTime.now());
+            incidence.setPriority(datos.getPriority());
+            incidence.setScope(datos.getScope());
+            incidence.setUserCreated(user.get());
+            incidenceRepository.save(incidence);
+        }
+
+        
 
     }
 

@@ -3,8 +3,8 @@ package com.foodscout.foodscout.models;
 
 import java.time.LocalDateTime;
 
-import com.foodscout.foodscout.models.utils.Priorities;
-import com.foodscout.foodscout.models.utils.Scopes;
+import com.foodscout.foodscout.models.utils.enums.Priorities;
+import com.foodscout.foodscout.models.utils.enums.Scopes;
 
 import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.Column;

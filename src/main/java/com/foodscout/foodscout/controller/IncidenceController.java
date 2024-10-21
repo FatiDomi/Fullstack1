@@ -28,9 +28,9 @@ public class IncidenceController {
     public ResponseEntity<Integer> storeIncidence(@RequestBody IncidenceDTO entity) {
         try {
             incidenceService.storeIncidence(entity);
-            return new ResponseEntity<>(null);
+            return ResponseEntity.status(HttpStatus.OK).build();
         } catch (Exception e) {
-            return  new ResponseEntity<>(null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
     

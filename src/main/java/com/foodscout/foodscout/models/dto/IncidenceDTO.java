@@ -1,7 +1,7 @@
 package com.foodscout.foodscout.models.dto;
 
-import com.foodscout.foodscout.models.utils.Priorities;
-import com.foodscout.foodscout.models.utils.Scopes;
+import com.foodscout.foodscout.models.utils.enums.Priorities;
+import com.foodscout.foodscout.models.utils.enums.Scopes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

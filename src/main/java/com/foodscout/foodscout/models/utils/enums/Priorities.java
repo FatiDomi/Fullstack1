@@ -1,4 +1,4 @@
-package com.foodscout.foodscout.models.utils;
+package com.foodscout.foodscout.models.utils.enums;
 
 public enum Priorities {
 

@@ -1,4 +1,4 @@
-package com.foodscout.foodscout.services.impl;
+package com.foodscout.foodscout.services;
 
 import org.springframework.stereotype.Service;
 @Service
