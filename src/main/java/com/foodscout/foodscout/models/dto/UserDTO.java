@@ -20,6 +20,6 @@ public class UserDTO {
   private Boolean active;
   private LocalDateTime lastConnection;
   private LocalDateTime createdAt;
-  private LocalDateTime updateAt;
-  private LocalDateTime deleteAt;
+  private LocalDateTime updatedAt;
+  private LocalDateTime deletedAt;
 }

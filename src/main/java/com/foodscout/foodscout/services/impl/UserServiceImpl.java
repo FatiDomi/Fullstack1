@@ -1,12 +1,18 @@
 package com.foodscout.foodscout.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.foodscout.foodscout.models.User;
 import com.foodscout.foodscout.models.dto.UserDTO;
+import com.foodscout.foodscout.models.utils.mappers.UserMapper;
 import com.foodscout.foodscout.repository.UserRepository;
 import com.foodscout.foodscout.services.UserService;
+import com.foodscout.foodscout.models.utils.mappers.UserMapper;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
@@ -14,17 +20,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDTO getUserByEmail(String email) {
-        User user= userRepository.getUserByEmail(email).get();
-        UserDTO response = new UserDTO();
-        response.setActive(user.getActive());
-        response.setEmail(user.getEmail());
-        response.setId(user.getId());
-        response.setLastConnection(user.getLastConnection());
-        response.setName(user.getName());
-        response.setRol(user.getRol());
-        return response;
-
-        
+        User user = userRepository.getUserByEmail(email).get();
+        return UserMapper.instance.userToUserDTOWithoutPassword(user);
     }
 
     @Override
@@ -40,8 +37,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void storeUser(UserDTO  userDTO) {
-        User userEntity = new User() ;
-        //userEntity.set    }
+    public void storeUser(UserDTO userFromControl) {
+
+        User userToDb = UserMapper.instance.userDTOToUserDB(userFromControl);
+        userRepository.save(userToDb);
     }
 }
