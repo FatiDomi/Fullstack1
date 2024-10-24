@@ -29,9 +29,10 @@ public interface UserMapper {
     @Mapping(target = "password", ignore = true)
     UserDTO userToUserDTOWithoutPassword(User user);
     
-    
-    // UserDTO userToUserDTOLastConnection(User user);
-        // Marca el método con @Named para que MapStruct lo reconozca correctamente
+    UserDTO userToUserDTOLastConnection(User user);
+        
+     
+     // Marca el método con @Named para que MapStruct lo reconozca correctamente
     @Named("getCurrentTime")
     default LocalDateTime getCurrentTime() {
         return LocalDateTime.now();

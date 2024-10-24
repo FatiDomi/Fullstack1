@@ -11,7 +11,7 @@ import java.util.List;
 public interface IncidenceService {
 
     //como devolvemos un listado de incidencias, con una lista
-    List<IncidenceDTO> getIncidencesByUserName(String username);
+    List<Incidence> getIncidencesByUserName(String username);
 
     void storeIncidence(IncidenceDTO datos);
     //la clase q extienda de esta interfaz, va tener que cargar estos metodos q voy a definir. 

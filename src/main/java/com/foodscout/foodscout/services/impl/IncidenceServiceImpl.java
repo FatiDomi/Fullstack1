@@ -25,17 +25,18 @@ public class IncidenceServiceImpl implements IncidenceService {
     @Autowired
     UserRepository userRepository;
 
-
-    public List<IncidenceDTO> getIncidencesDtoByUser(String username) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIncidencesDtoByUser'");
+    @Override
+    public List<Incidence> getIncidencesByUserName(String username) {
+        Optional<User> user = userRepository.getUserByEmail(username).get();
+        Optional<Incidence> incidenceByUser = incidenceRepository.findByUser(user);
+        return incidenceByUser.get();
     }
 
 
     @Override
     public void storeIncidence(IncidenceDTO datos) {
       
-        Optional<User> user   =  userRepository.findById(Long.parseLong(datos.getUserCreated()));
+        Optional<User> user   =  userRepository.getUserByEmail(datos.getUserCreated());
         if(user.isPresent()){
             Incidence incidence = new Incidence();
             incidence.setDescripcion(datos.getDescripcion());
@@ -54,12 +55,6 @@ public class IncidenceServiceImpl implements IncidenceService {
     public void deleteIncidence(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteIncidence'");
-    }
-
-    @Override
-    public List<IncidenceDTO> getIncidencesByUserName(String username) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIncidencesByUserName'");
     }
 
     @Override
